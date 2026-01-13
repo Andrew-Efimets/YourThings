@@ -7,19 +7,17 @@
 # shellcheck disable=SC1009
 
 
-#if [ ! -f .env ]; then
+#if [ ! -d vendor ]; then
+#  if [ ! -f ".env" ]; then
+#      cp .env.example .env
+#    fi
 #  composer install
-#  composer create-project --prefer-dist laravel/laravel ./
-
 #  php artisan key:generate
 #  chown -R www-data:www-data storage
 #  chown -R www-data:www-data bootstrap/cache
 #  chmod -R 775 storage
 #  chmod -R 755 bootstrap/cache
-#  php artisan migrate
 #fi
 
 php artisan optimize
-#php artisan migrate:fresh --seed
-composer update
 php-fpm
