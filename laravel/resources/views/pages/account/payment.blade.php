@@ -37,7 +37,7 @@
                     <script>
                         window.stripePublicKey = "{{ config('services.stripe.public_key') }}";
                     </script>
-                    @vite(['resources/js/stripe-handler.js'])
+{{--                    @vite(['resources/js/stripe-handler.js'])--}}
 
                     <div class="text-right">
                         <button id="card-button" class="button" type="submit">

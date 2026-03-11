@@ -9,6 +9,7 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+{{--    <script src="https://api-maps.yandex.ru/v3/?lang=ru_RU"></script>--}}
     <script src="https://api-maps.yandex.ru/v3/?apikey=b051c3c4-14ef-40f6-a2cd-52681dbf70a5&lang=ru_RU"></script>
     @vite(['resources/css/app.css'])
 </head>
@@ -39,6 +40,7 @@
         'resources/js/timer.js',
         'resources/js/select-city.js',
         'resources/js/slider.js',
+        'resources/js/stripe-handler.js'
         ])
 
 
