@@ -59,7 +59,6 @@ RUN apt-get update && apt-get install -y libpcre2-dev && \
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
-COPY ./.env /var/www/
 COPY ./.gitignore /var/www/
 COPY ./start.sh /var/www/
 
