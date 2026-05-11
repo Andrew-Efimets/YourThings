@@ -29,15 +29,19 @@ class ViewServiceProvider extends ServiceProvider
             $categories = Cache::remember('categories', now()->addDay(), function () {
                 return Category::all();
             });
-//            $cities = City::all();
-            $cities = Cache::remember('cities', now()->addDay(), function () {
-                return City::all();
-            });
+
             $cartCount = 0;
             if(request()->hasSession()){
                 $cartCount = count(session()->get('cart', []));
             }
-            $view->with(compact('categories', 'cities', 'cartCount'));
+            $view->with(compact('categories', 'cartCount'));
+        });
+
+        View::composer('partials.products.filter', function ($view) {
+            $cities = Cache::remember('cities_with_products', now()->addDay(), function () {
+                return City::has('products')->get();
+            });
+            $view->with('cities', $cities);
         });
     }
 }

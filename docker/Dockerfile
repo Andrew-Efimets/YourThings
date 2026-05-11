@@ -66,11 +66,6 @@ COPY ./start.sh /var/www/
 
 RUN update-ca-certificates
 
-COPY ./cacert.pem /usr/local/etc/php/cacert.pem
-
-RUN echo 'curl.cainfo="/usr/local/etc/php/cacert.pem"' >> /usr/local/etc/php/conf.d/docker-php-ext-ssl.ini && \
-    echo 'openssl.cafile="/usr/local/etc/php/cacert.pem"' >> /usr/local/etc/php/conf.d/docker-php-ext-ssl.ini
-
 RUN mkdir -p /var/www/.composer && chown -R $USER:$USER /var/www/.composer
 
 RUN mkdir -p /var/www/.composer && \
