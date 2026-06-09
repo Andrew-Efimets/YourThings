@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Filters\ProductFilter;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
+use App\Models\City;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Services\SortService;
@@ -52,7 +53,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.products.create');
+        $cities = City::all();
+        return view('pages.products.create', compact('cities'));
     }
 
     /**
